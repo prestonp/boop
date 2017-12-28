@@ -1,0 +1,5 @@
+<a href="/deploy">trigger new deploy</a>
+<hr/>
+{{range $index, $element := .}}
+<li><a href="/logs/{{$index}}">{{.Status}}</a></li>
+{{end}}
