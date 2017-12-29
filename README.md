@@ -24,5 +24,6 @@ docker build -t boop .
 docker run -e AWS_ACCESS_KEY_ID=<ACCESS KEY> \
 	-e AWS_SECRET_ACCESS_KEY=<SECRET KEY> \
 	-e VIRTUAL_HOST=ci.preston.io \
+	-e GITHUB_SECRET=<WEBHOOK SECRET> \
 	--rm -d -p 8080:8080 --name boop boop
 ```

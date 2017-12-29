@@ -20,6 +20,12 @@
   version = "v1.0.0"
 
 [[projects]]
+  name = "github.com/rjz/githubhook"
+  packages = ["."]
+  revision = "d5f019004f0a15c1c9be5ac3034071ba0dff5832"
+  version = "v0.0.1"
+
+[[projects]]
   name = "github.com/stretchr/testify"
   packages = [
     "assert",
@@ -31,6 +37,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "cd5771dd5433c66359f410e2f36e8af474e808c711b3328092f5063a3065f8a9"
+  inputs-digest = "74b31210143f0f3cf00254c38664c43f221d5961e73fc36d43d97744f6677c46"
   solver-name = "gps-cdcl"
   solver-version = 1

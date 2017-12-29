@@ -9,10 +9,11 @@ import (
 
 	"github.com/go-chi/chi"
 	"github.com/prestonp/boop/deploy"
+	"github.com/rjz/githubhook"
 )
 
 // New creates a new service handler
-func New(d deploy.Deployer) http.Handler {
+func New(d deploy.Deployer, ghSecret string) http.Handler {
 	r := chi.NewRouter()
 	tmpl := template.Must(template.ParseFiles("./templates/list.tmpl"))
 
@@ -51,8 +52,14 @@ func New(d deploy.Deployer) http.Handler {
 		}
 	})
 
-	r.Get("/deploy", func(w http.ResponseWriter, r *http.Request) {
-		err := d.Deploy()
+	r.Post("/deploy", func(w http.ResponseWriter, r *http.Request) {
+		_, err := githubhook.Parse([]byte(ghSecret), r)
+		if err != nil {
+			w.WriteHeader(http.StatusUnauthorized)
+			fmt.Fprint(w, "unauthorized")
+			return
+		}
+		err = d.Deploy()
 		if err != nil {
 			w.WriteHeader(http.StatusInternalServerError)
 			fmt.Fprint(w, err)
