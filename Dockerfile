@@ -1,6 +1,6 @@
 FROM ubuntu:latest
 
-RUN apt-get update && apt-get install -y golang-go hugo
+RUN apt-get update && apt-get install -y hugo git
 
 
 COPY bin/boop boop

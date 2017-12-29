@@ -90,7 +90,7 @@ func (d *deployer) run(depIdx int) {
 	dep := d.deployments[depIdx]
 
 	var errs = make([]error, 0)
-	cmd := exec.Command(d.scriptPath)
+	cmd := exec.Command("/bin/bash", d.scriptPath)
 	stdout, err := cmd.StdoutPipe()
 	if err != nil {
 		errs = append(errs, err)
