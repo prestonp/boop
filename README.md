@@ -1,3 +1,16 @@
+boop
+---
+
+boop is a really crappy CI server to handle building and deploying my blog on git pushes.
+
+## setup
+
+Compile and build docker image
+
+```
+make && make image
+```
+
 Run nginx reverse proxy
 
 ```
