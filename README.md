@@ -1,7 +1,7 @@
 boop
 ---
 
-boop is a really crappy CI server to handle building and deploying my blog on git pushes.
+boop is a CI server to handle building and deploying my blog on git pushes.
 
 ## setup
 
